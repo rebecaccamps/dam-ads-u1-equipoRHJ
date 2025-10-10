@@ -16,13 +16,13 @@ public class Reserva {
 
     public Reserva(String idReserva, double precio, LocalTime horaIncio, int duracion, String idPista, String idSocio, LocalDate fecha) {
         this.idReserva = idReserva;
-        this.precio = precio;
         this.horaInicio = horaIncio;
         this.idPista = idPista;
         this.idSocio = idSocio;
         this.fecha = fecha;
 
         try{
+            setPrecio(precio);
             setDuracionMin(duracion);
         }catch(Exception e){
             e.printStackTrace();
@@ -84,6 +84,9 @@ public class Reserva {
     }
 
     public void setPrecio(double precio) {
-        this.precio = precio;
+        if (precio >= 0 ) {
+            this.precio = precio;
+        }
+
     }
 }
