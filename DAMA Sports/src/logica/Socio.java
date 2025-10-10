@@ -9,7 +9,7 @@ public class Socio {
     private String email;
 
 
-    public Socio(String idSocio) {
+    public Socio(String idSocio, String dni, String nombre, String apellido, String telefono, String email) {
         this.idSocio = idSocio;
         this.dni = dni;
         this.nombre = nombre;
@@ -63,4 +63,6 @@ public class Socio {
     public void setEmail(String email) {
         this.email = email;
     }
+    
+
 }

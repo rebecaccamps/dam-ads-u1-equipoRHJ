@@ -9,19 +9,24 @@ public class Reserva {
     private  String idSocio;
     private String idPista;
     private LocalDate fecha;
-    private LocalTime horaIncio;
-    private int duracion;
+    private LocalTime horaInicio;
+    private int duracionMin;
     private double precio;
 
 
     public Reserva(String idReserva, double precio, LocalTime horaIncio, int duracion, String idPista, String idSocio, LocalDate fecha) {
         this.idReserva = idReserva;
         this.precio = precio;
-        this.horaIncio = horaIncio;
-        this.duracion = duracion;
+        this.horaInicio = horaIncio;
         this.idPista = idPista;
         this.idSocio = idSocio;
         this.fecha = fecha;
+
+        try{
+            setDuracionMin(duracion);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
 
 
@@ -53,20 +58,25 @@ public class Reserva {
         this.fecha = fecha;
     }
 
-    public LocalTime getHoraIncio() {
-        return horaIncio;
+    public LocalTime getHoraInicio() {
+        return horaInicio;
     }
 
-    public void setHoraIncio(LocalTime horaIncio) {
-        this.horaIncio = horaIncio;
+    public void setHoraInicio(LocalTime horaInicio) {
+        this.horaInicio = horaInicio;
     }
 
-    public int getDuracion() {
-        return duracion;
+    public int getDuracionMin() {
+        return duracionMin;
     }
 
-    public void setDuracion(int duracion) {
-        this.duracion = duracion;
+    public void setDuracionMin(int duracionMin) {
+        if (duracionMin > 0 ) {
+            this.duracionMin = duracionMin;
+        }else {
+            throw new RuntimeException("La duración debe de ser mayor a 0");
+        }
+        ;
     }
 
     public double getPrecio() {
