@@ -16,8 +16,6 @@ public class Socio {
         this.apellido = apellido;
         this.telefono = telefono;
         this.email = email;
-
-
     }
 
     public String getIdSocio() {
@@ -63,6 +61,6 @@ public class Socio {
     public void setEmail(String email) {
         this.email = email;
     }
-    
+
 
 }
