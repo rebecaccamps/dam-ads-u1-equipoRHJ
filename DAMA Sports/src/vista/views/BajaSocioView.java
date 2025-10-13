@@ -23,8 +23,13 @@ public class BajaSocioView extends GridPane {
         add(baja, 1, 1);
 
         baja.setOnAction(e -> {
-            club.bajaSocio(id.getValue());
-            showInfo("Socio eliminado correctamente");
+
+            if (id.getValue() != null) {
+                club.bajaSocio(id.getValue());
+                showInfo("Socio eliminado correctamente");
+            } else {
+                showError("Seleccione un socio primero");
+            }
         });
 
     }
