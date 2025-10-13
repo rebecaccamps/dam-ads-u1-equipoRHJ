@@ -19,9 +19,17 @@ public class DashboardView extends BorderPane {
         TableView<Socio> tablaSocios = new TableView<>();
         TableColumn<Socio, String> c1 = new TableColumn<>("ID");
         c1.setCellValueFactory(p -> new javafx.beans.property.SimpleStringProperty(p.getValue().getIdSocio()));
-        TableColumn<Socio, String> c2 = new TableColumn<>("Nombre");
-        c2.setCellValueFactory(p -> new javafx.beans.property.SimpleStringProperty(p.getValue().getNombre()));
-        tablaSocios.getColumns().addAll(c1, c2);
+        TableColumn<Socio, String> c2 = new TableColumn<>("DNI");
+        c2.setCellValueFactory(p -> new javafx.beans.property.SimpleStringProperty(p.getValue().getDni()));
+        TableColumn<Socio, String> c3 = new TableColumn<>("Nombre");
+        c3.setCellValueFactory(p -> new javafx.beans.property.SimpleStringProperty(p.getValue().getNombre()));
+        TableColumn<Socio, String> c4 = new TableColumn<>("Apellidos");
+        c4.setCellValueFactory(p -> new javafx.beans.property.SimpleStringProperty(p.getValue().getApellidos()));
+        TableColumn<Socio, String> c5 = new TableColumn<>("Teléfono");
+        c5.setCellValueFactory(p -> new javafx.beans.property.SimpleStringProperty(p.getValue().getTelefono()));
+        TableColumn<Socio, String> c6 = new TableColumn<>("Email");
+        c6.setCellValueFactory(p -> new javafx.beans.property.SimpleStringProperty(p.getValue().getEmail()));
+        tablaSocios.getColumns().addAll(c1, c2, c3, c4, c5, c6);
         tablaSocios.getItems().addAll(club.getSocios());
 
         TableView<Pista> tablaPistas = new TableView<>();

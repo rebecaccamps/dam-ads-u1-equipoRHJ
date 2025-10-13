@@ -25,12 +25,19 @@ public class PistaFormView extends GridPane {
         add(crear, 1, 4);
 
         crear.setOnAction(e -> {
-            try {
-             //   club.altaPista(new Pista(id.getText(), deporte.getText(), descripcion.getText(), disponible.isSelected()));
 
-            } catch (Exception ex) {
-                showError(ex.getMessage());
-            }
+
+                if (id.getText().equals("") || deporte.getText().equals("") || descripcion.getText().equals("")) {
+                    showError("Todos los campos son obligatorios. Asegúrese de haber rellenado todos");
+                } else {
+                    try {
+                        club.altaPista(new Pista(id.getText(), deporte.getText(), descripcion.getText(), disponible.isSelected()));
+                        showInfo("Pista dada de alta correctamente");
+
+                    } catch (Exception ex) {
+                        showError(ex.getMessage());
+                    }
+                    }
         });
     }
 

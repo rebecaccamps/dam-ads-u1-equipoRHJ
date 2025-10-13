@@ -101,10 +101,8 @@ public class ClubDeportivo {
         for (Pista p : pistas) {
             if (p.getIdPista().equals(idPista)) {
                 p.setDisponible(disponible);
-                return;
             }
         }
-        System.out.println("No se encontró la pista con ID " + idPista);
     }
 
     //Crear una Reserva

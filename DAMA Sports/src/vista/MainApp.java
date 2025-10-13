@@ -84,7 +84,7 @@ public class MainApp extends Application {
         MenuItem salir = new MenuItem("Salir");
         salir.setOnAction(e -> {
             try {
-                //Lammo al método del modelo para guardar antes de salir
+                //Llamo al método del modelo para guardar antes de salir
             } catch (Exception ignored) {}
             Platform.exit();
         });

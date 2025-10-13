@@ -4,7 +4,7 @@ public class Socio {
     private final String idSocio;
     private String dni;
     private String nombre;
-    private String apellido;
+    private String apellidos;
     private String telefono;
     private String email;
 
@@ -13,7 +13,7 @@ public class Socio {
         this.idSocio = idSocio;
         this.dni = dni;
         this.nombre = nombre;
-        this.apellido = apellido;
+        this.apellidos = apellido;
         this.telefono = telefono;
         this.email = email;
     }
@@ -38,12 +38,12 @@ public class Socio {
         this.nombre = nombre;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getApellidos() {
+        return apellidos;
     }
 
     public void setApellido(String apellido) {
-        this.apellido = apellido;
+        this.apellidos = apellido;
     }
 
     public String getTelefono() {

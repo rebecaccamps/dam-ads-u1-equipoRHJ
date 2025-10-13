@@ -30,13 +30,19 @@ public class SocioFormView extends GridPane {
         add(crear, 1, 6);
 
         crear.setOnAction(e -> {
-            try {
-                boolean ok=true;
-                //   ok= club.altaSocio(new Socio(id.getText(), dni.getText(), nombre.getText(), apellidos.getText(), tel.getText(), email.getText()));
-               if (ok) showInfo("Socio insertado correctametne");
-                else showError("Socio no inertado correctamente");
-            } catch (Exception ex) {
-                showError(ex.getMessage());
+
+            if (id.getText().equals("") || nombre.getText().equals("") || apellidos.getText().equals("" ) ||
+                    tel.getText().equals("") || email.getText().equals("")) {
+
+                showError("Todos los campos son obligatorios. Asegúrese de haber rellenado todos");
+            } else {
+                try {
+
+                    club.altaSocio(new Socio(id.getText(), dni.getText(), nombre.getText(), apellidos.getText(), tel.getText(), email.getText()));
+
+                } catch (Exception ex) {
+                    showError(ex.getMessage());
+                }
             }
         });
     }

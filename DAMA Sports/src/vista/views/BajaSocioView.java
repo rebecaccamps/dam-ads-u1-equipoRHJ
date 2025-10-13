@@ -8,19 +8,25 @@ import javafx.scene.layout.GridPane;
 import java.util.function.Consumer;
 
 public class BajaSocioView extends GridPane {
+
     public BajaSocioView(ClubDeportivo club) {
         setPadding(new Insets(12));
         setHgap(8); setVgap(8);
 
-        ComboBox<Socio> id = new ComboBox<>();
+        ComboBox<String> id = new ComboBox<>();
         Button baja = new Button("Dar de baja");
+        for (Socio socio : club.getSocios()) {
+            id.getItems().add(socio.getIdSocio());
+        }
 
         addRow(0, new Label("Socio"), id);
         add(baja, 1, 1);
 
         baja.setOnAction(e -> {
-        //LLamar al método del modelo para dar de baja  a un socio.
+            club.bajaSocio(id.getValue());
+            showInfo("Socio eliminado correctamente");
         });
+
     }
 
     private void showError(String msg) {

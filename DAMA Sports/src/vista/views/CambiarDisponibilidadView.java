@@ -12,21 +12,34 @@ public class CambiarDisponibilidadView extends GridPane {
         setPadding(new Insets(12));
         setHgap(8); setVgap(8);
 
-        ComboBox<Pista> id = new ComboBox();
+        ComboBox<String> id = new ComboBox();
         CheckBox disponible = new CheckBox("Disponible");
         Button cambiar = new Button("Aplicar");
+        for (Pista pista : club.getPistas()) {
+            id.getItems().addAll(pista.getIdPista());
+        }
 
         addRow(0, new Label("idPista"), id);
         addRow(1, new Label("Estado"), disponible);
         add(cambiar, 1, 2);
 
         cambiar.setOnAction(e -> {
-            try {
-          //     club.cambiarDisponibilidadPista(id.getText(), disponible.isSelected());
 
-            } catch (Exception ex) {
-                showError(ex.getMessage());
+            if (id.getValue() != null) {
+
+                try {
+
+                    club.cambiarDisponibilidadPista(id.getValue(), disponible.isSelected());
+                    showInfo("Disponibilidad de la pista cambiada correctamente");
+
+                } catch (Exception ex) {
+                    showError(ex.getMessage());
+                }
+
+            } else {
+                showError("Seleccione una pista primero");
             }
+
         });
     }
 
