@@ -26,7 +26,6 @@ public class ClubDeportivo {
 
     //Retorna las listas
     public ArrayList<Socio> getSocios() {
-        //puto
         return socios;
     }
 
