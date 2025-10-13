@@ -14,16 +14,16 @@ public class Reserva {
     private double precio;
 
 
-    public Reserva(String idReserva, double precio, LocalTime horaIncio, int duracion, String idPista, String idSocio, LocalDate fecha) {
+    public Reserva(String idReserva, String idSocio, String idPista, LocalDate fecha, LocalTime horaInicio, int duracionMin, double precio) {
         this.idReserva = idReserva;
-        this.horaInicio = horaIncio;
+        this.horaInicio = horaInicio;
         this.idPista = idPista;
         this.idSocio = idSocio;
         this.fecha = fecha;
 
         try{
             setPrecio(precio);
-            setDuracionMin(duracion);
+            setDuracionMin(duracionMin);
         }catch(Exception e){
             e.printStackTrace();
         }

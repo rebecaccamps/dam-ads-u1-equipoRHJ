@@ -1,7 +1,6 @@
 package vista.views;
 
-import modelo.*;
-import servicio.ClubDeportivo;
+import logica.*;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;

@@ -10,6 +10,13 @@ public class ClubDeportivo {
     ArrayList<Reserva> reservas;
 
 
+    public ClubDeportivo() {
+        socios = new ArrayList<>();
+        pistas = new ArrayList<>();
+        reservas = new ArrayList<>();
+    }
+
+
     //para agregar
     public void agregarSocio(Socio socio) {
         socios.add(socio);

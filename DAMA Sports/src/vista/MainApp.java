@@ -1,7 +1,6 @@
 package vista;
 
-import modelo.*;
-import servicio.ClubDeportivo;
+import logica.*;
 import vista.views.*;
 import javafx.application.Application;
 import javafx.application.Platform;

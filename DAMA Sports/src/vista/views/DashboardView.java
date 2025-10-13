@@ -1,17 +1,15 @@
 package vista.views;
 
 
-import servicio.ClubDeportivo;
+import logica.*;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.BorderPane;
-
 import java.util.function.Consumer;
-import modelo.Socio;
-import modelo.Reserva;
-import modelo.Pista;
+
+
 public class DashboardView extends BorderPane {
     public DashboardView(ClubDeportivo club) {
         setPadding(new Insets(10));
