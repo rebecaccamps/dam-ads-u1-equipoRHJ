@@ -11,15 +11,21 @@ public class CancelarReservaView extends GridPane {
         setPadding(new Insets(12));
         setHgap(8); setVgap(8);
 
-        ComboBox<Reserva> id = new ComboBox();
+        ComboBox<String> id = new ComboBox();
         Button cancelar = new Button("Cancelar reserva");
 
         addRow(0, new Label("Reserva"), id);
         add(cancelar, 1, 1);
 
+        for (Reserva r : club.getReservas()) {
+            id.getItems().addAll(r.getIdReserva());
+        }
+
         cancelar.setOnAction(e -> {
             try {
-         //      club.cancelarReserva(id.getValue());
+
+                club.cancelarReserva(id.getValue());
+                showInfo("Reserva cancelada correctamente");
 
             } catch (Exception ex) {
                 showError(ex.getMessage());
