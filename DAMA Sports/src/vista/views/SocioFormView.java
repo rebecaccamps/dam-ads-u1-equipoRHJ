@@ -39,6 +39,7 @@ public class SocioFormView extends GridPane {
                 try {
 
                     club.altaSocio(new Socio(id.getText(), dni.getText(), nombre.getText(), apellidos.getText(), tel.getText(), email.getText()));
+                    showInfo("Socio dado de alta con éxito");
 
                 } catch (Exception ex) {
                     showError(ex.getMessage());
