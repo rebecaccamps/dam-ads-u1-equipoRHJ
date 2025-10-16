@@ -22,9 +22,12 @@ public class MainApp extends Application {
     public void start(Stage stage) throws Exception {
         club = new ClubDeportivo();
         try {
-     //      LLamo al método de la lógica para cargar los datos del fichero
+            club.cargarDatosSocio();
+            club.cargarDatosPista();
+            club.cargarDatosReserva();
         } catch (Exception e) {
             e.printStackTrace();
+            showError("Error al cargar los datos: " + e.getMessage());
         }
 
         root = new BorderPane();
@@ -75,7 +78,10 @@ public class MainApp extends Application {
         MenuItem guardar = new MenuItem("Guardar");
         guardar.setOnAction(e -> {
             try {
-            //    LLamo al método del modelo para guardar los datos en fichero
+
+                club.guardarDatosGlobales();
+
+                showInfo("Datos guardados con éxito");
 
             } catch (Exception ex) {
                 showError("Error guardando: " + ex.getMessage());
@@ -84,7 +90,7 @@ public class MainApp extends Application {
         MenuItem salir = new MenuItem("Salir");
         salir.setOnAction(e -> {
             try {
-                //Llamo al método del modelo para guardar antes de salir
+
             } catch (Exception ignored) {}
             Platform.exit();
         });
@@ -111,9 +117,11 @@ public class MainApp extends Application {
     @Override
     public void stop() throws Exception {
         try {
-         //   LLamo al método del modelo para guardar los datos
+
         } catch (Exception ignored) {}
+
         super.stop();
+
     }
 
     public static void main(String[] args) {
