@@ -55,10 +55,9 @@ public class ClubDeportivo {
         String linea = br.readLine();
 
         while (linea != null) {
-            // Skip empty lines
-            if (!linea.trim().isEmpty()) {
+
                 String[] datos = linea.split(",");
-                // Check if we have the correct number of fields
+
                 if (datos.length == 6) {
                     try {
                         Socio s = new Socio(datos[0], datos[1], datos[2], datos[3], datos[4], datos[5]);
@@ -69,7 +68,7 @@ public class ClubDeportivo {
                 } else {
                     System.out.println("Error: Formato incorrecto en línea de socio: " + linea);
                 }
-            }
+
             linea = br.readLine();
         }
 
@@ -79,30 +78,17 @@ public class ClubDeportivo {
     }
 
     public void guardarDatosSocio(Socio s) throws IOException {
-        // Add the socio to the list if it's not already there
-        boolean exists = false;
-        for (Socio existingSocio : socios) {
-            if (existingSocio.getIdSocio().equals(s.getIdSocio())) {
-                exists = true;
-                break;
-            }
-        }
-        if (!exists) {
-            socios.add(s);
-        }
 
-        // Save all socios to file
-        FileWriter fw = new FileWriter("socios.txt", false);
+        FileWriter fw = new FileWriter("socios.txt", true);
         BufferedWriter bw = new BufferedWriter(fw);
 
-        for (Socio socio : socios) {
-            bw.write(socio.getIdSocio() + "," + socio.getDni() + "," + socio.getNombre() + "," + socio.getApellidos()
-                    + "," + socio.getTelefono() + "," + socio.getEmail() + "\n");
-        }
+        bw.write(s.getIdSocio() + "," + s.getDni() + "," + s.getNombre() + "," + s.getApellidos()
+                + "," + s.getTelefono() + "," + s.getEmail() + "\n");
 
         bw.flush();
         bw.close();
         fw.close();
+
     }
 
     //carga de datos y guardado de pistas
@@ -113,10 +99,10 @@ public class ClubDeportivo {
         String linea = br.readLine();
 
         while (linea != null) {
-            // Skip empty lines
-            if (!linea.trim().isEmpty()) {
+
+
                 String[] datos = linea.split(",");
-                // Check if we have the correct number of fields
+
                 if (datos.length == 4) {
                     try {
                         Pista p = new Pista(datos[0], datos[1], datos[2], Boolean.valueOf(datos[3]));
@@ -127,7 +113,7 @@ public class ClubDeportivo {
                 } else {
                     System.out.println("Error: Formato incorrecto en línea de pista: " + linea);
                 }
-            }
+
             linea = br.readLine();
         }
 
@@ -137,29 +123,16 @@ public class ClubDeportivo {
     }
 
     public void guardarDatosPista(Pista p) throws IOException {
-        // Add the pista to the list if it's not already there
-        boolean exists = false;
-        for (Pista existingPista : pistas) {
-            if (existingPista.getIdPista().equals(p.getIdPista())) {
-                exists = true;
-                break;
-            }
-        }
-        if (!exists) {
-            pistas.add(p);
-        }
 
-        // Save all pistas to file
-        FileWriter fw = new FileWriter("pistas.txt", false);
+        FileWriter fw = new FileWriter("pistas.txt", true);
         BufferedWriter bw = new BufferedWriter(fw);
 
-        for (Pista pista : pistas) {
-            bw.write(pista.getIdPista() + "," + pista.getDeporte() + "," + pista.getDescripcion() + "," + pista.isDisponible() + "\n");
-        }
+        bw.write(p.getIdPista() + "," + p.getDeporte() + "," + p.getDescripcion() + "," + p.isDisponible() + "\n");
 
         bw.flush();
         bw.close();
         fw.close();
+
     }
 
     //carga de datos y guardado reservas
@@ -170,10 +143,10 @@ public class ClubDeportivo {
         String linea = br.readLine();
 
         while (linea != null) {
-            // Skip empty lines
-            if (!linea.trim().isEmpty()) {
+
+
                 String[] datos = linea.split(",");
-                // Check if we have the correct number of fields
+
                 if (datos.length == 7) {
                     try {
                         Reserva r = new Reserva(datos[0], datos[1], datos[2], LocalDate.parse(datos[3]),
@@ -185,7 +158,7 @@ public class ClubDeportivo {
                 } else {
                     System.out.println("Error: Formato incorrecto en línea de reserva: " + linea);
                 }
-            }
+
             linea = br.readLine();
         }
 
@@ -194,59 +167,61 @@ public class ClubDeportivo {
     }
 
     public void guardarDatosReserva(Reserva r) throws IOException {
-        // Add the reserva to the list if it's not already there
-        boolean exists = false;
-        for (Reserva existingReserva : reservas) {
-            if (existingReserva.getIdReserva().equals(r.getIdReserva())) {
-                exists = true;
-                break;
-            }
-        }
-        if (!exists) {
-            reservas.add(r);
-        }
 
-        // Save all reservas to file
-        FileWriter fw = new FileWriter("reservas.txt", false);
+        FileWriter fw = new FileWriter("reservas.txt", true);
         BufferedWriter bw = new BufferedWriter(fw);
 
-        for (Reserva reserva : reservas) {
-            bw.write(reserva.getIdReserva() + "," + reserva.getIdSocio() + "," + reserva.getIdPista() + "," + reserva.getFecha()
-                    + "," + reserva.getHoraInicio() + "," + reserva.getDuracionMin() + "," + reserva.getPrecio() + "\n");
-        }
+        bw.write(r.getIdReserva() + "," + r.getIdSocio() + "," + r.getIdPista() + "," + r.getFecha()
+                + "," + r.getHoraInicio() + "," + r.getDuracionMin() + "," + r.getPrecio() + "\n");
 
         bw.flush();
         bw.close();
         fw.close();
+
     }
 
     public void guardarDatosGlobales() throws IOException {
-        // Use the individual save methods to save all data
-        // Since we've updated them to overwrite files, we can just call them with any object
-        // and they will save all objects of that type
 
-        if (!socios.isEmpty()) {
-            guardarDatosSocio(socios.get(0));
-        } else {
-            // Create empty file if no socios
-            FileWriter fw = new FileWriter("socios.txt", false);
-            fw.close();
+
+
+        FileWriter fws = new FileWriter("socios.txt", false);
+        BufferedWriter bws = new BufferedWriter(fws);
+
+        bws.write("");
+
+        bws.flush();
+        bws.close();
+        fws.close();
+
+        FileWriter fwp = new FileWriter("pistas.txt", false);
+        BufferedWriter bwp = new BufferedWriter(fwp);
+
+        bwp.write("");
+
+        bwp.flush();
+        bwp.close();
+        fwp.close();
+
+        FileWriter fwr = new FileWriter("reservas.txt", false);
+        BufferedWriter bwr = new BufferedWriter(fwr);
+
+        bwr.write("");
+
+        bwr.flush();
+        bwr.close();
+        fwr.close();
+
+
+        for (Socio s : this.getSocios()){
+            this.guardarDatosSocio(s);
         }
 
-        if (!pistas.isEmpty()) {
-            guardarDatosPista(pistas.get(0));
-        } else {
-            // Create empty file if no pistas
-            FileWriter fw = new FileWriter("pistas.txt", false);
-            fw.close();
+        for (Pista p : this.getPistas()){
+            this.guardarDatosPista(p);
         }
 
-        if (!reservas.isEmpty()) {
-            guardarDatosReserva(reservas.get(0));
-        } else {
-            // Create empty file if no reservas
-            FileWriter fw = new FileWriter("reservas.txt", false);
-            fw.close();
+        for (Reserva r : this.getReservas()){
+            this.guardarDatosReserva(r);
         }
     }
 
