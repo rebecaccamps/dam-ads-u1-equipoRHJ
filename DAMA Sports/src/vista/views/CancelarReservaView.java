@@ -24,8 +24,12 @@ public class CancelarReservaView extends GridPane {
         cancelar.setOnAction(e -> {
             try {
 
-                club.cancelarReserva(id.getValue());
-                showInfo("Reserva cancelada correctamente");
+                if (id.getValue() != null) {
+                    club.cancelarReserva(id.getValue());
+                    showInfo("Reserva cancelada correctamente");
+                } else {
+                    showError("Seleccione una reserva primero");
+                }
 
             } catch (Exception ex) {
                 showError(ex.getMessage());

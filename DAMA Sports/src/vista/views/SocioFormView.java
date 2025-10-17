@@ -31,15 +31,24 @@ public class SocioFormView extends GridPane {
 
         crear.setOnAction(e -> {
 
-            if (id.getText().equals("") || nombre.getText().equals("") || apellidos.getText().equals("" ) ||
-                    tel.getText().equals("") || email.getText().equals("")) {
-
-                showError("Todos los campos son obligatorios. Asegúrese de haber rellenado todos");
+            if (id.getText().equals("")) {
+                showError("Rellene los campos obligatorios (idSocio)");
             } else {
                 try {
+                    boolean encontrado = false;
 
-                    club.altaSocio(new Socio(id.getText(), dni.getText(), nombre.getText(), apellidos.getText(), tel.getText(), email.getText()));
-                    showInfo("Socio dado de alta con éxito");
+                    for (Socio s : club.getSocios()) {
+                        if (s.getIdSocio().equals(id.getText())) {
+                            encontrado = true;
+                        }
+                    }
+
+                    if (!encontrado) {
+                        club.altaSocio(new Socio(id.getText(), dni.getText(), nombre.getText(), apellidos.getText(), tel.getText(), email.getText()));
+                        showInfo("Socio dado de alta con éxito");
+                    } else {
+                        showError("Ya existe un socio con este id asignado");
+                    }
 
                 } catch (Exception ex) {
                     showError(ex.getMessage());

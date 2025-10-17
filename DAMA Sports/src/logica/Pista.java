@@ -13,7 +13,6 @@ public class Pista {
         this.deporte = deporte;
         this.descripcion = descripcion;
         this.disponible = disponible;
-
     }
 
 

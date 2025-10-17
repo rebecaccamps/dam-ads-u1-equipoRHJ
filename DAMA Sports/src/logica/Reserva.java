@@ -73,7 +73,7 @@ public class Reserva {
     public void setDuracionMin(int duracionMin) {
         if (duracionMin > 0 ) {
             this.duracionMin = duracionMin;
-        }else {
+        } else {
             throw new RuntimeException("La duración debe de ser mayor a 0");
         }
         ;

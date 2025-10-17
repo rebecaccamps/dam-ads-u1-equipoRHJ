@@ -44,10 +44,52 @@ public class ReservaFormView extends GridPane {
             try {
                 LocalTime t = LocalTime.parse(hora.getText());
 
-              Reserva r = new Reserva(id.getText(), idSocio.getValue(), idPista.getValue(),
-                      fecha.getValue(), t, duracion.getValue(), Double.parseDouble(precio.getText()));
-                club.crearReserva(r);
-                showInfo("Reserva realizada com éxito");
+                if (id.getText() == "" || idSocio.getValue() == null || idPista.getValue() == null || fecha.getValue() == null || hora.getText() == null) {
+                    showError("Rellene los campos obligatorios (idReserva, Socio, Pista, Fecha, hora Inicio)");
+                } else {
+
+                    boolean encontrado = false;
+
+                    for (Reserva r : club.getReservas()) {
+                        if (r.getIdReserva().equals(id.getText())) {
+                            encontrado = true;
+                        }
+
+                        if (r.getIdSocio().equals(idSocio.getValue())) {
+                            encontrado = true;
+                        }
+
+                        if (r.getIdPista().equals(idPista.getValue())) {
+                            encontrado = true;
+                        }
+
+                    }
+
+                    for (Pista p : club.getPistas()) {
+                        if (p.getIdPista().equals(idPista.getValue())) {
+                            if (!p.isDisponible()) {
+                                encontrado = true;
+                            }
+                        }
+                    }
+
+                    for (Pista p : club.getPistas()) {
+
+                    }
+                    if (!encontrado) {
+
+                        Reserva r = new Reserva(id.getText(), idSocio.getValue(), idPista.getValue(),
+                                fecha.getValue(), t, duracion.getValue(), Double.parseDouble(precio.getText()));
+                        club.crearReserva(r);
+                        showInfo("Reserva realizada com éxito");
+                    } else {
+                        showError("Posibles causas del error: \n1. Ya existe una reserva con este id asignado \n" +
+                                "2. El socio seleccionado está asignado a otra reserva \n" +
+                                "3. La pista seleccionada ya está asignada a otra reserva \n" +
+                                "4. La pista seleccionada no está disponible");
+                    }
+                }
+
             } catch (Exception ex) {
                 showError(ex.getMessage());
             }

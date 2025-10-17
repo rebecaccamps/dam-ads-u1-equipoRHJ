@@ -27,12 +27,27 @@ public class PistaFormView extends GridPane {
         crear.setOnAction(e -> {
 
 
-                if (id.getText().equals("") || deporte.getText().equals("") || descripcion.getText().equals("")) {
-                    showError("Todos los campos son obligatorios. Asegúrese de haber rellenado todos");
+                //if (id.getText().equals("") || deporte.getText().equals("") || descripcion.getText().equals("")) {
+                  //  showError("Todos los campos son obligatorios. Asegúrese de haber rellenado todos");
+
+                if (id.getText().equals("")) {
+                    showError("Rellene los campos obligatorios (idPista)");
                 } else {
                     try {
-                        club.altaPista(new Pista(id.getText(), deporte.getText(), descripcion.getText(), disponible.isSelected()));
-                        showInfo("Pista dada de alta correctamente");
+
+                        boolean encontrado = false;
+                        for (Pista p : club.getPistas()) {
+                            if (p.getIdPista().equals(id.getText())) {
+                                encontrado = true;
+                            }
+                        }
+
+                        if (!encontrado) {
+                            club.altaPista(new Pista(id.getText(), deporte.getText(), descripcion.getText(), disponible.isSelected()));
+                            showInfo("Pista dada de alta correctamente");
+                        } else {
+                            showError("Ya existe una pista con este id asignado");
+                        }
 
                     } catch (Exception ex) {
                         showError(ex.getMessage());
