@@ -1,6 +1,5 @@
 package vista.views;
 
-import jdk.vm.ci.meta.Local;
 import logica.*;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
