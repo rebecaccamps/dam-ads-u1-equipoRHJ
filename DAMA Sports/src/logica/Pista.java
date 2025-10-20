@@ -1,6 +1,6 @@
 package logica;
 
-public class Pista {
+public class    Pista {
 
     private final String idPista;
     private String deporte;

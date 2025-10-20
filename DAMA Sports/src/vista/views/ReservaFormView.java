@@ -1,5 +1,6 @@
 package vista.views;
 
+import jdk.vm.ci.meta.Local;
 import logica.*;
 import javafx.geometry.Insets;
 import javafx.scene.control.*;
@@ -69,6 +70,14 @@ public class ReservaFormView extends GridPane {
                         encontrado = true;
                     }
 
+                    for (Reserva r : club.getReservas()) {
+                        if (idPista.equals(r.getIdPista())) {
+                            if (r.getFecha().equals(fecha.getValue())) {
+                                encontrado = true;
+                            }
+                        }
+                    }
+
                     if (!encontrado) {
 
                         Reserva r = new Reserva( id.getText(), idSocio.getValue(), idPista.getValue(),
@@ -78,7 +87,8 @@ public class ReservaFormView extends GridPane {
                     } else {
                         showError("Posibles causas del error: \n1. Ya existe una reserva con este id asignado \n" +
                                 "2. La pista seleccionada no está disponible \n" +
-                                "3. La fecha seleccionada no es válida (Es anterior a la actual");
+                                "3. La fecha seleccionada no es válida (Es anterior a la actual \n" +
+                                "4. Ya hay una reserva de la pista seleccionada ese día.");
                     }
                 }
 
