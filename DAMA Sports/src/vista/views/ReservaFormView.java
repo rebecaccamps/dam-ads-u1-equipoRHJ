@@ -78,8 +78,8 @@ public class ReservaFormView extends GridPane {
                     }
                     if (!encontrado) {
 
-                        Reserva r = new Reserva(id.getText(), idSocio.getValue(), idPista.getValue(),
-                                fecha.getValue(), t, duracion.getValue(), Double.parseDouble(precio.getText()));
+                        Reserva r = new Reserva( id.getText(), idSocio.getValue(), idPista.getValue(),
+                                fecha.getValue(), t, duracion.getValue(), Double.parseDouble((!precio.getText().isEmpty() ? precio.getText() : "0")));
                         club.crearReserva(r);
                         showInfo("Reserva realizada com éxito");
                     } else {

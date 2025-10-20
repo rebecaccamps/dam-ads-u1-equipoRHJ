@@ -43,7 +43,8 @@ public class PistaFormView extends GridPane {
                         }
 
                         if (!encontrado) {
-                            club.altaPista(new Pista(id.getText(), deporte.getText(), descripcion.getText(), disponible.isSelected()));
+                            club.altaPista(new Pista(id.getText(), (!deporte.getText().isEmpty() ? deporte.getText() : "null"),
+                                    (!descripcion.getText().isEmpty() ? descripcion.getText() : "null"), disponible.isSelected()));
                             showInfo("Pista dada de alta correctamente");
                         } else {
                             showError("Ya existe una pista con este id asignado");

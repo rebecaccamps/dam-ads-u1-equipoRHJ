@@ -44,7 +44,8 @@ public class SocioFormView extends GridPane {
                     }
 
                     if (!encontrado) {
-                        club.altaSocio(new Socio(id.getText(), dni.getText(), nombre.getText(), apellidos.getText(), tel.getText(), email.getText()));
+                        club.altaSocio(new Socio((!id.getText().isEmpty() ? id.getText() : "null"),(!dni.getText().isEmpty() ? dni.getText() : "null"), (!nombre.getText().isEmpty() ? nombre.getText() : "null"),
+                                (!apellidos.getText().isEmpty() ? apellidos.getText() : "null"), (!tel.getText().isEmpty() ? tel.getText() : "null"), (!email.getText().isEmpty() ? email.getText() : "null")));
                         showInfo("Socio dado de alta con éxito");
                     } else {
                         showError("Ya existe un socio con este id asignado");
