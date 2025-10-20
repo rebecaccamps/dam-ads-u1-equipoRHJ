@@ -21,32 +21,33 @@
           <root url="jar://$USER_HOME$/Downloads/openjfx-24.0.2_windows-x64_bin-sdk/javafx-sdk-24.0.2/lib/jdk.jsobject.jar!/" />
           <root url="jar://$USER_HOME$/Downloads/openjfx-24.0.2_windows-x64_bin-sdk/javafx-sdk-24.0.2/lib/jfx.incubator.input.jar!/" />
           <root url="jar://$USER_HOME$/Downloads/openjfx-24.0.2_windows-x64_bin-sdk/javafx-sdk-24.0.2/lib/jfx.incubator.richtext.jar!/" />
-          <root url="file://$MODULE_DIR$/../.." />
+          <root url="file://$USER_HOME$" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="file://$MODULE_DIR$/../../FP/1er curso/Ejercicios/Ejercicios Programacion Tema 9. Hugo Garrido Rojo/Ejercicio 2. Pelicula/src" />
-          <root url="file://$MODULE_DIR$/../../FP/1er curso/Ejercicios/Ejercicios Programacion Tema 9. Hugo Garrido Rojo/Ejercicio1. Aplicacion. Instituto/src" />
-          <root url="file://$MODULE_DIR$/../../FP/1er curso/Programacion/Cajon Magico Programacion Examen Final/src" />
-          <root url="file://$MODULE_DIR$/../../FP/1er curso/Programacion/Ejercicios Excepciones/src" />
-          <root url="file://$MODULE_DIR$/../../FP/1er curso/Programacion/Ejercicios Programacion Tema 11. Hugo Garrido Rojo/src" />
-          <root url="file://$MODULE_DIR$/../../FP/1er curso/Programacion/Ejercicios Programacion Tema 9. Hugo Garrido Rojo/Ejercicio 2. Pelicula/src" />
-          <root url="file://$MODULE_DIR$/../../FP/1er curso/Programacion/Ejercicios Programacion Tema 9. Hugo Garrido Rojo/Ejercicio1. Aplicacion. Instituto/src" />
-          <root url="file://$MODULE_DIR$/../../FP/1er curso/Programacion/Ejercicios Programacion Tema 9. Hugo Garrido Rojo/Ejercicios Programacion Tema 10. Hugo Garrido Rojo/src" />
-          <root url="file://$MODULE_DIR$/../../FP/1er curso/Programacion/Ejercicios Repaso Examen Final/src" />
-          <root url="file://$MODULE_DIR$/../../FP/2do curso/Programacion/01 AD Aplicacion Persistente ficheros/01 AD Aplicacion Persistente ficheros/src" />
-          <root url="file://$MODULE_DIR$/../../FP/2do curso/Programacion/PrimerEjercicioAplicacionesPersistentesAFicheros/src" />
+          <root url="file://$USER_HOME$/FP/1er curso/Ejercicios/Ejercicios Programacion Tema 9. Hugo Garrido Rojo/Ejercicio 2. Pelicula/src" />
+          <root url="file://$USER_HOME$/FP/1er curso/Ejercicios/Ejercicios Programacion Tema 9. Hugo Garrido Rojo/Ejercicio1. Aplicacion. Instituto/src" />
+          <root url="file://$USER_HOME$/FP/1er curso/Programacion/Cajon Magico Programacion Examen Final/src" />
+          <root url="file://$USER_HOME$/FP/1er curso/Programacion/Ejercicios Excepciones/src" />
+          <root url="file://$USER_HOME$/FP/1er curso/Programacion/Ejercicios Programacion Tema 11. Hugo Garrido Rojo/src" />
+          <root url="file://$USER_HOME$/FP/1er curso/Programacion/Ejercicios Programacion Tema 9. Hugo Garrido Rojo/Ejercicio 2. Pelicula/src" />
+          <root url="file://$USER_HOME$/FP/1er curso/Programacion/Ejercicios Programacion Tema 9. Hugo Garrido Rojo/Ejercicio1. Aplicacion. Instituto/src" />
+          <root url="file://$USER_HOME$/FP/1er curso/Programacion/Ejercicios Programacion Tema 9. Hugo Garrido Rojo/Ejercicios Programacion Tema 10. Hugo Garrido Rojo/src" />
+          <root url="file://$USER_HOME$/FP/1er curso/Programacion/Ejercicios Repaso Examen Final/src" />
+          <root url="file://$USER_HOME$/FP/2do curso/Programacion/01 AD Aplicacion Persistente ficheros/01 AD Aplicacion Persistente ficheros/src" />
+          <root url="file://$USER_HOME$/FP/2do curso/Programacion/PrimerEjercicioAplicacionesPersistentesAFicheros/src" />
           <root url="file://$MODULE_DIR$/DAMA Sports/src" />
-          <root url="file://$MODULE_DIR$/../../JUnit/src/main/java" />
-          <root url="file://$MODULE_DIR$/../../JUnit/src/test/java" />
-          <root url="file://$MODULE_DIR$/../../Practica_Examen_Entornos_Tests/src/main/java" />
-          <root url="file://$MODULE_DIR$/../../Practica_Examen_Entornos_Tests/src/test/java" />
-          <root url="file://$MODULE_DIR$/../../Proyectos de Intellij/Ejercicios_Programacion_Tema_4/src" />
-          <root url="file://$MODULE_DIR$/../../Proyectos de Intellij/Ejercicios_Respa_Examen1/src" />
-          <root url="file://$MODULE_DIR$/../../hola1/src" />
-          <root url="file://$MODULE_DIR$/../../hola/src/main/java" />
+          <root url="file://$USER_HOME$/JUnit/src/main/java" />
+          <root url="file://$USER_HOME$/JUnit/src/test/java" />
+          <root url="file://$USER_HOME$/Practica_Examen_Entornos_Tests/src/main/java" />
+          <root url="file://$USER_HOME$/Practica_Examen_Entornos_Tests/src/test/java" />
+          <root url="file://$USER_HOME$/Proyectos de Intellij/Ejercicios_Programacion_Tema_4/src" />
+          <root url="file://$USER_HOME$/Proyectos de Intellij/Ejercicios_Respa_Examen1/src" />
+          <root url="file://$USER_HOME$/hola1/src" />
+          <root url="file://$USER_HOME$/hola/src/main/java" />
         </SOURCES>
       </library>
     </orderEntry>
+    <orderEntry type="library" name="lib" level="project" />
   </component>
 </module>
