@@ -55,14 +55,6 @@ public class ReservaFormView extends GridPane {
                             encontrado = true;
                         }
 
-                        if (r.getIdSocio().equals(idSocio.getValue())) {
-                            encontrado = true;
-                        }
-
-                        if (r.getIdPista().equals(idPista.getValue())) {
-                            encontrado = true;
-                        }
-
                     }
 
                     for (Pista p : club.getPistas()) {
@@ -73,9 +65,10 @@ public class ReservaFormView extends GridPane {
                         }
                     }
 
-                    for (Pista p : club.getPistas()) {
-
+                    if (fecha.getValue().isBefore(LocalDate.now())) {
+                        encontrado = true;
                     }
+
                     if (!encontrado) {
 
                         Reserva r = new Reserva( id.getText(), idSocio.getValue(), idPista.getValue(),
@@ -84,9 +77,8 @@ public class ReservaFormView extends GridPane {
                         showInfo("Reserva realizada com éxito");
                     } else {
                         showError("Posibles causas del error: \n1. Ya existe una reserva con este id asignado \n" +
-                                "2. El socio seleccionado está asignado a otra reserva \n" +
-                                "3. La pista seleccionada ya está asignada a otra reserva \n" +
-                                "4. La pista seleccionada no está disponible");
+                                "2. La pista seleccionada no está disponible \n" +
+                                "3. La fecha seleccionada no es válida (Es anterior a la actual");
                     }
                 }
 

@@ -25,8 +25,21 @@ public class BajaSocioView extends GridPane {
         baja.setOnAction(e -> {
 
             if (id.getValue() != null) {
-                club.bajaSocio(id.getValue());
-                showInfo("Socio eliminado correctamente");
+                boolean encontrado = false;
+
+                for (Reserva r : club.getReservas()) {
+                    if (r.getIdSocio().equals(id.getValue())) {
+                        encontrado = true;
+                    }
+                }
+
+                if (!encontrado) {
+                    club.bajaSocio(id.getValue());
+                    showInfo("Socio eliminado correctamente");
+                } else {
+                    showError("Este socio tiene reservas activas");
+                }
+
             } else {
                 showError("Seleccione un socio primero");
             }
