@@ -50,6 +50,7 @@ public class ReservaFormView extends GridPane {
 
                     boolean encontrado = false;
 
+                    //Validación de si el id de la reserva ya está cogido
                     for (Reserva r : club.getReservas()) {
                         if (r.getIdReserva().equals(id.getText())) {
                             encontrado = true;
@@ -57,6 +58,7 @@ public class ReservaFormView extends GridPane {
 
                     }
 
+                    //Validación de si la pista está disponible
                     for (Pista p : club.getPistas()) {
                         if (p.getIdPista().equals(idPista.getValue())) {
                             if (!p.isDisponible()) {
@@ -65,10 +67,12 @@ public class ReservaFormView extends GridPane {
                         }
                     }
 
+                    //Validación de si la fecha introducida es válida (no es menor a la actual)
                     if (fecha.getValue().isBefore(LocalDate.now())) {
                         encontrado = true;
                     }
 
+                    //Validación de si una misma puede ser reservada de nuevo (si la fecha se sitúa en un día diferente)
                     for (Reserva r : club.getReservas()) {
                         if (idPista.equals(r.getIdPista())) {
                             if (r.getFecha().equals(fecha.getValue())) {
@@ -86,7 +90,7 @@ public class ReservaFormView extends GridPane {
                     } else {
                         showError("Posibles causas del error: \n1. Ya existe una reserva con este id asignado \n" +
                                 "2. La pista seleccionada no está disponible \n" +
-                                "3. La fecha seleccionada no es válida (Es anterior a la actual \n" +
+                                "3. La fecha seleccionada no es válida (Es anterior a la actual) \n" +
                                 "4. Ya hay una reserva de la pista seleccionada ese día.");
                     }
                 }
