@@ -22,6 +22,9 @@ public class MainApp extends Application {
     public void start(Stage stage) throws Exception {
         club = new ClubDeportivo();
         try {
+            //Al iniciar la aplicación cargo todos los datos relacionados
+            //con el club deportivo (socios, pistas y reservas) que tenemos
+            //guardados en los ficheros de texto de cada uno
             club.cargarDatosSocio();
             club.cargarDatosPista();
             club.cargarDatosReserva();
@@ -79,6 +82,9 @@ public class MainApp extends Application {
         guardar.setOnAction(e -> {
             try {
 
+                //Al pulsar sobre el botón guardar llamamos al método guardarDatosGlobales()
+                //para que nos sobreescriba todos los datos de socios, pistas y reservas
+                //y logremos una persistencia a ficheros correcta
                 club.guardarDatosGlobales();
 
                 showInfo("Datos guardados con éxito");

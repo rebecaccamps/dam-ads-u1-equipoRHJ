@@ -86,7 +86,7 @@ public class ReservaFormView extends GridPane {
                         Reserva r = new Reserva( id.getText(), idSocio.getValue(), idPista.getValue(),
                                 fecha.getValue(), t, duracion.getValue(), Double.parseDouble((!precio.getText().isEmpty() ? precio.getText() : "0")));
                         club.crearReserva(r);
-                        showInfo("Reserva realizada com éxito");
+                        showInfo("Reserva realizada con éxito");
                     } else {
                         showError("Posibles causas del error: \n1. Ya existe una reserva con este id asignado \n" +
                                 "2. La pista seleccionada no está disponible \n" +

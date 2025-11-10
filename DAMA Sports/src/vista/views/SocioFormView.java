@@ -37,6 +37,7 @@ public class SocioFormView extends GridPane {
                 try {
                     boolean encontrado = false;
 
+                    //Compruebo que el id introducido del socio nuevo a crear es válido (no está repetido)
                     for (Socio s : club.getSocios()) {
                         if (s.getIdSocio().equals(id.getText())) {
                             encontrado = true;

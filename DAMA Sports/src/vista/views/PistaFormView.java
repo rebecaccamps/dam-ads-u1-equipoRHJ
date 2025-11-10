@@ -36,6 +36,8 @@ public class PistaFormView extends GridPane {
                     try {
 
                         boolean encontrado = false;
+
+                        //Compruebo que el id introducido de la pista nueva a crear es válido (no está repetido)
                         for (Pista p : club.getPistas()) {
                             if (p.getIdPista().equals(id.getText())) {
                                 encontrado = true;

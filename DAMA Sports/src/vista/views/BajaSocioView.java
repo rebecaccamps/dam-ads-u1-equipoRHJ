@@ -27,6 +27,7 @@ public class BajaSocioView extends GridPane {
             if (id.getValue() != null) {
                 boolean encontrado = false;
 
+                //Antes de eliminar un socio, veo si tiene reservas activas
                 for (Reserva r : club.getReservas()) {
                     if (r.getIdSocio().equals(id.getValue())) {
                         encontrado = true;
